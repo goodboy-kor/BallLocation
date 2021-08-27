@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/opt/ros/noetic/include/**",
+                "/home/we/ros_catkin_ws/src/balllocate/include/**",
+                "/home/we/ros_catkin_ws/src/test/include/**",
+                "/usr/include/**"
+            ],
+            "name": "ROS",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
+    ],
+    "version": 4
+}
