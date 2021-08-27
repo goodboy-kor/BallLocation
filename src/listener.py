@@ -8,6 +8,7 @@ def listener():
     rospy.init_node('listener', anonymous=True)
     # rospy.Subscriber('scan', LaserScan, callback)
     rospy.Subscriber('scan', LaserScan, locateCalculate.cal_callback)
+    # rospy.Subscriber('scan', LaserScan, locateCalculate.cal_callback)
     rospy.spin()
 
 
