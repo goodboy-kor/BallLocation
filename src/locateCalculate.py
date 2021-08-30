@@ -4,31 +4,33 @@ import math
 
 
 def cal_callback(msg):
-    CalLocate(msg)
+    # getMsg(msg)
+    calLocate(msg)
 
 
+# 기본 함수 angle과 거리 출력
 def getMsg(msg):
     print("====================")
     for i in range(360):
-        length = msg.ranges[i]
-        if(length != 0 and length < 12):
+        distance = msg.ranges[i]
+        if(distance != 0 and distance < 12):
             degree = math.degrees(msg.angle_min + msg.angle_increment*i)
-            length = msg.ranges[i]
-            print("angles : " + str(degree) + " ranges : " + str(length))
+            distance = msg.ranges[i]
+            print(f"angles : {str(degree)} ranges : {str(distance)}")
 
-
-def CalLocate(msg):
+# x좌표, y좌표 출력
+def calLocate(msg):
     print("=====================")
     for i in range(360):
         degree = math.degrees(msg.angle_min + msg.angle_increment*i)
         rad = msg.angle_min + msg.angle_increment*i
-        length = msg.ranges[i]
-        Locate_x = 0
-        Locate_y = 0
-        # print("degree : " + str(degree) + "length : " + str(length))
-        if(length != 0 and length < 12):
-            Locate_x = length*math.cos(rad)
-            Locate_y = length*math.sin(rad)
+        dist = msg.ranges[i]
+        locate_x = 0
+        locate_y = 0
+        # print("degree : " + str(degree) + "distance : " + str(distance))
+        if(dist != 0 and dist < 12):
+            locate_x = dist*math.cos(rad)
+            locate_y = dist*math.sin(rad)
 
-            print("Angle :", round(degree, 2), "Length :", round(length, 3), "x 좌표 :", round(Locate_x, 3), "y 좌표 :",
-                  round(Locate_y, 3))
+            print("Angle :", round(degree, 2), "distance :", round(dist, 2), "x 좌표 :", round(locate_x, 2), "y 좌표 :",
+                  round(locate_y, 2))
