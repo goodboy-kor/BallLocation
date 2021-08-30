@@ -21,12 +21,14 @@ def CalLocate(msg):
     print("=====================")
     for i in range(360):
         degree = math.degrees(msg.angle_min + msg.angle_increment*i)
+        rad = msg.angle_min + msg.angle_increment*i
         length = msg.ranges[i]
         Locate_x = 0
         Locate_y = 0
+        # print("degree : " + str(degree) + "length : " + str(length))
         if(length != 0 and length < 12):
-            Locate_x = length*math.cos(degree)
-            Locate_y = length*math.sin(degree)
-            degree = math.degrees(msg.angle_min + msg.angle_increment*i)
-            print("Angle : " + str(degree) + " x 좌표 : " +
-                  str(Locate_x) + " y 좌표 : " + str(Locate_y))
+            Locate_x = length*math.cos(rad)
+            Locate_y = length*math.sin(rad)
+
+            print("Angle :", round(degree, 2), "Length :", round(length, 3), "x 좌표 :", round(Locate_x, 3), "y 좌표 :",
+                  round(Locate_y, 3))
